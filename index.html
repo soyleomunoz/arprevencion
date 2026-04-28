@@ -1,0 +1,2696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AR Prevención – Consultoría especializada en Prevención de Riesgos, Seguridad y Salud Ocupacional, Medio Ambiente y Gestión de Emergencias en Chile.">
+<meta name="keywords" content="prevención de riesgos, seguridad laboral, salud ocupacional, gestión de emergencias, Chile, consultoría, Ley 16744">
+<meta name="author" content="AR Prevención">
+<meta property="og:title" content="AR Prevención | Consultoría en Seguridad y Salud Ocupacional">
+<meta property="og:description" content="Soluciones integrales en prevención de riesgos laborales para empresas de todos los rubros en Chile.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<title>AR Prevención | Consultoría en Seguridad y Salud Ocupacional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* ==========================================
+   CSS VARIABLES & RESET
+   ========================================== */
+:root {
+  --navy: #1E3A5F;
+  --blue: #2F5D8A;
+  --blue-light: #3E7AB5;
+  --ice: #E6ECF2;
+  --white: #FFFFFF;
+  --orange: #F28C28;
+  --orange-light: #F6A85B;
+  --dark: #2B2B2B;
+  --mid: #6D6D6D;
+  --green: #4CAF50;
+  --red: #D64545;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 2px 8px rgba(30,58,95,0.08);
+  --shadow-md: 0 8px 32px rgba(30,58,95,0.12);
+  --shadow-lg: 0 20px 60px rgba(30,58,95,0.18);
+  --radius: 12px;
+  --radius-lg: 20px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--dark);
+  background: var(--white);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* ==========================================
+   UTILITIES
+   ========================================== */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.18;
+  margin-bottom: 16px;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--mid);
+  line-height: 1.7;
+  max-width: 560px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(242,140,40,0.35);
+}
+.btn-primary:hover {
+  background: var(--orange-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(242,140,40,0.45);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.5);
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: var(--white);
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 22px 0;
+  transition: padding 0.3s, background 0.3s, box-shadow 0.3s;
+}
+
+#navbar.scrolled {
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(10px);
+  padding: 12px 0;
+  box-shadow: var(--shadow-md);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  background: var(--orange);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--white);
+  font-size: 1rem;
+  letter-spacing: -0.03em;
+}
+
+.logo-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--white);
+  transition: color 0.3s;
+  line-height: 1.1;
+}
+
+.logo-text span {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+#navbar.scrolled .logo-text { color: var(--navy); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links a {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.02em;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  border-radius: 2px;
+}
+
+.nav-links a:hover { color: var(--white); }
+.nav-links a:hover::after { transform: scaleX(1); }
+#navbar.scrolled .nav-links a { color: var(--mid); }
+#navbar.scrolled .nav-links a:hover { color: var(--navy); }
+
+.nav-cta {
+  background: var(--orange);
+  color: var(--white) !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 700 !important;
+  box-shadow: 0 3px 14px rgba(242,140,40,0.35);
+}
+.nav-cta:hover { background: var(--orange-light); transform: translateY(-1px); }
+.nav-cta::after { display: none !important; }
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 6px;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+#navbar.scrolled .nav-hamburger span { background: var(--navy); }
+
+/* Mobile Nav */
+.nav-mobile {
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  background: var(--white);
+  padding: 16px 24px 24px;
+  border-top: 1px solid var(--ice);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-mobile a {
+  padding: 12px 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--navy);
+  border-bottom: 1px solid var(--ice);
+  font-size: 0.95rem;
+}
+
+.nav-mobile a:last-child { border-bottom: none; margin-top: 8px; }
+
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0d2240 0%, #1E3A5F 45%, #2F5D8A 100%);
+}
+
+.hero-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242,140,40,0.15) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+  pointer-events: none;
+}
+
+.hero-glow-2 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(47,93,138,0.4) 0%, transparent 70%);
+  bottom: -50px;
+  left: -50px;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 140px 0 100px;
+  width: 100%;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(242,140,40,0.15);
+  border: 1px solid rgba(242,140,40,0.3);
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  color: var(--orange-light);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.hero-badge-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--orange);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.4); }
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 24px;
+  max-width: 800px;
+}
+
+.hero-title .accent {
+  color: var(--orange);
+  position: relative;
+}
+
+.hero-title .accent::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--orange);
+  opacity: 0.4;
+  border-radius: 2px;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  color: rgba(255,255,255,0.7);
+  max-width: 580px;
+  line-height: 1.75;
+  margin-bottom: 44px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 72px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.stat-item {}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-number span {
+  color: var(--orange);
+}
+
+.stat-label {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Floating shield icon */
+.hero-visual {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+/* ==========================================
+   SERVICES
+   ========================================== */
+#servicios {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.services-header .section-subtitle {
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  background: var(--white);
+  border: 1px solid #E8EFF6;
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--orange), var(--orange-light));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+  transform-origin: left;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--ice);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: var(--transition);
+}
+
+.service-card:hover .service-icon {
+  background: var(--orange);
+}
+
+.service-card:hover .service-icon svg path,
+.service-card:hover .service-icon svg rect,
+.service-card:hover .service-icon svg circle,
+.service-card:hover .service-icon svg polyline,
+.service-card:hover .service-icon svg line,
+.service-card:hover .service-icon svg polygon {
+  stroke: var(--white);
+}
+
+.service-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.service-desc {
+  font-size: 0.9rem;
+  color: var(--mid);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--orange);
+  font-family: var(--font-display);
+  transition: gap 0.3s;
+}
+
+.service-link:hover { gap: 10px; }
+
+/* ==========================================
+   BENEFITS
+   ========================================== */
+#beneficios {
+  padding: 100px 0;
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.beneficios-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.beneficios-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.beneficios-left .section-title { color: var(--white); }
+.beneficios-left .section-subtitle { color: rgba(255,255,255,0.65); }
+
+.benefit-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.benefit-check {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: rgba(242,140,40,0.15);
+  border: 1px solid rgba(242,140,40,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.benefit-text h4 {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.benefit-text p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+
+.beneficios-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.metric-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.metric-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(242,140,40,0.3);
+  transform: translateY(-4px);
+}
+
+.metric-card:first-child {
+  grid-column: 1 / -1;
+  background: rgba(242,140,40,0.1);
+  border-color: rgba(242,140,40,0.25);
+}
+
+.metric-num {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--orange);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.metric-label {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.5;
+}
+
+@media (max-width: 860px) {
+  .beneficios-inner { grid-template-columns: 1fr; gap: 48px; }
+}
+
+/* ==========================================
+   ABOUT
+   ========================================== */
+#nosotros {
+  padding: 100px 0;
+  background: var(--ice);
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-visual {
+  position: relative;
+}
+
+.about-img-frame {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-img-frame::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: rgba(242,140,40,0.15);
+}
+
+.about-shield {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-badge-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.about-badge {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.about-badge-num {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--orange);
+}
+
+.about-badge-label {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+}
+
+.about-text {}
+
+.about-text .section-subtitle { margin-bottom: 28px; }
+
+.about-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.pillar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--white);
+  border-radius: 10px;
+  border: 1px solid rgba(30,58,95,0.08);
+  transition: var(--transition);
+}
+
+.pillar:hover {
+  border-color: var(--orange);
+  transform: translateX(4px);
+}
+
+.pillar-icon {
+  font-size: 1.3rem;
+}
+
+.pillar-text {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+@media (max-width: 860px) {
+  .about-inner { grid-template-columns: 1fr; gap: 48px; }
+}
+
+/* ==========================================
+   PROCESS
+   ========================================== */
+#proceso {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.proceso-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.proceso-header .section-subtitle { margin: 0 auto; }
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--orange), var(--blue));
+}
+
+.timeline-step {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  padding-bottom: 44px;
+  position: relative;
+}
+
+.timeline-step:last-child { padding-bottom: 0; }
+
+.step-dot {
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  background: var(--white);
+  border: 3px solid var(--ice);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--mid);
+  position: relative;
+  z-index: 1;
+  transition: var(--transition);
+}
+
+.timeline-step.active .step-dot,
+.timeline-step:hover .step-dot {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--white);
+  box-shadow: 0 0 0 6px rgba(242,140,40,0.15);
+}
+
+.step-content {
+  padding-top: 12px;
+}
+
+.step-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 6px;
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.step-desc {
+  font-size: 0.9rem;
+  color: var(--mid);
+  line-height: 1.7;
+}
+
+/* ==========================================
+   TESTIMONIOS
+   ========================================== */
+#testimonios {
+  padding: 100px 0;
+  background: var(--ice);
+  overflow: hidden;
+}
+
+.testimonios-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.slider-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-slide {
+  min-width: 100%;
+  padding: 0 24px;
+}
+
+.testimonial-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  max-width: 720px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.testimonial-quote {
+  position: absolute;
+  top: 32px;
+  right: 36px;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  color: var(--ice);
+  line-height: 1;
+  user-select: none;
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.star {
+  width: 18px;
+  height: 18px;
+  color: var(--orange);
+}
+
+.testimonial-text {
+  font-size: 1.08rem;
+  color: var(--dark);
+  line-height: 1.8;
+  margin-bottom: 32px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.author-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--white);
+  font-size: 1.1rem;
+}
+
+.author-info {}
+
+.author-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 0.95rem;
+}
+
+.author-role {
+  font-size: 0.82rem;
+  color: var(--mid);
+  margin-top: 2px;
+}
+
+.slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.slider-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--ice);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.slider-btn:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+.slider-btn:hover svg path { stroke: var(--white); }
+
+.slider-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ice);
+  border: 2px solid #ccd6e0;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dot.active {
+  background: var(--orange);
+  border-color: var(--orange);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ==========================================
+   BLOG
+   ========================================== */
+#blog {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.blog-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+.blog-card {
+  border: 1px solid #E8EFF6;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+
+.blog-cover {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-cover-1 { background: linear-gradient(135deg, #1E3A5F 0%, #2F5D8A 100%); }
+.blog-cover-2 { background: linear-gradient(135deg, #2F5D8A 0%, #3E7AB5 100%); }
+.blog-cover-3 { background: linear-gradient(135deg, #F28C28 0%, #2F5D8A 100%); }
+
+.blog-cover-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.25;
+}
+
+.blog-tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: var(--orange);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.blog-body {
+  padding: 28px;
+}
+
+.blog-meta {
+  font-size: 0.78rem;
+  color: var(--mid);
+  margin-bottom: 10px;
+}
+
+.blog-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.blog-excerpt {
+  font-size: 0.875rem;
+  color: var(--mid);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.blog-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--orange);
+  font-family: var(--font-display);
+  transition: gap 0.3s;
+}
+
+.blog-read:hover { gap: 10px; }
+
+/* ==========================================
+   FAQ
+   ========================================== */
+#faq {
+  padding: 100px 0;
+  background: var(--ice);
+}
+
+.faq-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.faq-left .section-subtitle { margin-bottom: 32px; }
+
+.faq-contact-box {
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 32px;
+  color: var(--white);
+}
+
+.faq-contact-box h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.faq-contact-box p {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid #E0E9F2;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-item.open { border-color: var(--blue-light); }
+
+.faq-question {
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  gap: 16px;
+}
+
+.faq-q-text {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+  flex: 1;
+  line-height: 1.4;
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--ice);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.faq-item.open .faq-icon {
+  background: var(--orange);
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+}
+
+.faq-answer-inner {
+  padding: 0 24px 20px;
+  font-size: 0.9rem;
+  color: var(--mid);
+  line-height: 1.75;
+}
+
+.faq-item.open .faq-answer { max-height: 300px; }
+
+@media (max-width: 860px) {
+  .faq-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ==========================================
+   CONTACT
+   ========================================== */
+#contacto {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact-info {}
+
+.contact-info .section-subtitle { margin-bottom: 40px; }
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-icon-wrap {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: var(--ice);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-detail-text h4 {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.contact-detail-text p {
+  font-size: 0.88rem;
+  color: var(--mid);
+  line-height: 1.5;
+}
+
+.contact-form-wrap {
+  background: var(--ice);
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--white);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--dark);
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  appearance: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(47,93,138,0.1);
+}
+
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+  border-color: var(--red);
+}
+
+.form-group textarea { resize: vertical; min-height: 120px; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field-error {
+  display: none;
+  font-size: 0.78rem;
+  color: var(--red);
+  margin-top: 5px;
+}
+
+.field-error.show { display: block; }
+
+.form-submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--orange);
+  color: var(--white);
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(242,140,40,0.35);
+}
+
+.form-submit-btn:hover {
+  background: var(--orange-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(242,140,40,0.45);
+}
+
+.form-feedback {
+  display: none;
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.form-feedback.success {
+  display: block;
+  background: rgba(76,175,80,0.12);
+  border: 1px solid rgba(76,175,80,0.3);
+  color: #2e7d32;
+}
+
+.form-feedback.error-msg {
+  display: block;
+  background: rgba(214,69,69,0.1);
+  border: 1px solid rgba(214,69,69,0.25);
+  color: var(--red);
+}
+
+@media (max-width: 860px) {
+  .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ==========================================
+   CTA FINAL
+   ========================================== */
+#cta-final {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #0d2240 0%, #1E3A5F 50%, #2F5D8A 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#cta-final::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.cta-final-content {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-final-content .section-title {
+  color: var(--white);
+  margin-bottom: 16px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-final-content .section-subtitle {
+  color: rgba(255,255,255,0.65);
+  margin: 0 auto 44px;
+  text-align: center;
+}
+
+.cta-final-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+footer {
+  background: #0a1e35;
+  padding: 80px 0 32px;
+  color: rgba(255,255,255,0.65);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.4fr;
+  gap: 56px;
+  margin-bottom: 64px;
+}
+
+.footer-brand .logo-text { color: var(--white); }
+
+.footer-tagline {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  margin: 16px 0 28px;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.social-link {
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.social-link:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+.footer-col h5 {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: var(--orange); }
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.35);
+}
+
+.footer-bottom a { color: var(--orange); }
+
+@media (max-width: 960px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+
+@media (max-width: 560px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ==========================================
+   WHATSAPP FLOAT
+   ========================================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 900;
+}
+
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: var(--white);
+  padding: 14px 20px;
+  border-radius: 100px;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(37,211,102,0.5);
+}
+
+.whatsapp-icon-wrap {
+  animation: waBounce 2.5s ease-in-out infinite;
+}
+
+@keyframes waBounce {
+  0%, 100% { transform: scale(1); }
+  40% { transform: scale(1.15); }
+  60% { transform: scale(0.95); }
+}
+
+/* ==========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================== */
+@media (max-width: 768px) {
+  .hero-stats { gap: 28px; }
+  .hero-title { font-size: 2rem; }
+  .hero-ctas { flex-direction: column; }
+  .hero-ctas .btn { justify-content: center; }
+  .services-grid { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
+  .testimonial-card { padding: 32px 24px; }
+  .contact-form-wrap { padding: 32px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==========================================
+     NAVBAR
+     ========================================== -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="logo-mark">AR</div>
+        <div class="logo-text">
+          AR Prevención
+          <span>Seguridad &amp; Salud Ocupacional</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contacto" class="nav-cta">Solicitar Asesoría</a></li>
+      </ul>
+      <button class="nav-hamburger" id="hamburgerBtn" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="mobileMenu" style="display:none;">
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#blog">Blog</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacto" class="btn btn-primary" style="text-align:center;">Solicitar Asesoría</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ==========================================
+     HERO
+     ========================================== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  
+  <!-- Large background shield -->
+  <div class="hero-visual">
+    <svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M250 30L60 110V250C60 360 250 470 250 470C250 470 440 360 440 250V110L250 30Z" stroke="white" stroke-width="8" fill="none"/>
+      <path d="M180 250L220 290L320 190" stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Consultoría Certificada en Chile
+      </div>
+      
+      <h1 class="hero-title">
+        Protegemos a tus trabajadores.<br>
+        Blindamos tu empresa ante<br>
+        <span class="accent">riesgos y sanciones.</span>
+      </h1>
+      
+      <p class="hero-subtitle">
+        Soluciones integrales en prevención de riesgos laborales, salud ocupacional y gestión de emergencias. Cumplimiento normativo garantizado para empresas de todos los rubros en Chile.
+      </p>
+      
+      <div class="hero-ctas">
+        <a href="#contacto" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.62 4.52 2 2 0 0 1 3.59 2.34h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/></svg>
+          Solicitar Asesoría Gratuita
+        </a>
+        <a href="#servicios" class="btn btn-outline">
+          Ver Nuestros Servicios
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">+500<span>+</span></div>
+          <div class="stat-label">Empresas Asesoradas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">15<span>+</span></div>
+          <div class="stat-label">Años de Experiencia</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100<span>%</span></div>
+          <div class="stat-label">Cumplimiento Normativo</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">13</div>
+          <div class="stat-label">Regiones con Cobertura</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SERVICIOS
+     ========================================== -->
+<section id="servicios">
+  <div class="container">
+    <div class="services-header fade-in">
+      <div class="section-label">Nuestros Servicios</div>
+      <h2 class="section-title">Todo lo que tu empresa necesita<br>en materia de seguridad laboral</h2>
+      <p class="section-subtitle">Soluciones completas e integradas para que tu organización opere de forma segura, legal y sostenible.</p>
+    </div>
+    
+    <div class="services-grid">
+      
+      <!-- Servicio 1 -->
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2F5D8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Consultoría en Prevención de Riesgos</h3>
+        <p class="service-desc">Diagnóstico integral, elaboración de matrices IPER y desarrollo de programas de seguridad adaptados a la realidad de cada empresa. Identificamos y mitigamos riesgos antes de que ocurran accidentes.</p>
+        <a href="#contacto" class="service-link">
+          Más información
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      
+      <!-- Servicio 2 -->
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2F5D8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Cumplimiento Normativo Legal</h3>
+        <p class="service-desc">Asesoría experta en Ley 16.744, DS40, DS54, DS67, Ley 20.123 y protocolos obligatorios: TMERT, MMC, ISTAS 21, PREXOR. Evita multas, sanciones y paralizaciones de actividades.</p>
+        <a href="#contacto" class="service-link">
+          Más información
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      
+      <!-- Servicio 3 -->
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2F5D8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Planes de Emergencia y Evacuación</h3>
+        <p class="service-desc">Elaboración de planes de emergencia, formación de brigadas contraincendio, primeros auxilios y evacuación. Preparamos a tu equipo para actuar con rapidez y eficacia ante cualquier contingencia.</p>
+        <a href="#contacto" class="service-link">
+          Más información
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      
+      <!-- Servicio 4 -->
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2F5D8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Capacitación y Formación</h3>
+        <p class="service-desc">Programas de capacitación en prevención de riesgos, salud ocupacional, uso de extintores y primeros auxilios. Formación práctica y actualizada que genera cultura de seguridad duradera.</p>
+        <a href="#contacto" class="service-link">
+          Más información
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      
+      <!-- Servicio 5 -->
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2F5D8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Gestión Ambiental y Auditorías</h3>
+        <p class="service-desc">Gestión de residuos, evaluación de impacto ambiental, resoluciones sanitarias y auditorías de seguridad. Garantizamos que tu empresa opere dentro de todos los estándares medioambientales exigidos.</p>
+        <a href="#contacto" class="service-link">
+          Más información
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      
+      <!-- Servicio 6 -->
+      <div class="service-card fade-in">
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2F5D8A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+          </svg>
+        </div>
+        <h3 class="service-title">Ergonomía y Salud Ocupacional</h3>
+        <p class="service-desc">Evaluación ergonómica de puestos de trabajo, manejo manual de cargas, trastornos musculoesqueléticos y bienestar laboral. Reducimos enfermedades profesionales y mejoramos la productividad.</p>
+        <a href="#contacto" class="service-link">
+          Más información
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     BENEFICIOS
+     ========================================== -->
+<section id="beneficios">
+  <div class="beneficios-bg-pattern"></div>
+  <div class="container">
+    <div class="beneficios-inner">
+      <div class="beneficios-left fade-in">
+        <div class="section-label">Por qué elegirnos</div>
+        <h2 class="section-title">Una inversión que protege vidas y resultados financieros</h2>
+        <p class="section-subtitle">Los accidentes laborales tienen un alto costo humano, legal y económico. AR Prevención es tu escudo ante estos riesgos.</p>
+        
+        <div class="benefit-list">
+          <div class="benefit-item">
+            <div class="benefit-check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="benefit-text">
+              <h4>Cobertura nacional presencial y remota</h4>
+              <p>Atendemos empresas en todo Chile con la misma calidad y dedicación, sin importar tu ubicación geográfica.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="benefit-text">
+              <h4>Soluciones a medida para cada rubro</h4>
+              <p>Industria, construcción, servicios, transporte, educación: diseñamos programas específicos para tu sector.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="benefit-text">
+              <h4>Asesoría permanente y documentación actualizada</h4>
+              <p>No te dejamos solo: acompañamiento continuo y actualización ante cambios en la normativa vigente.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-check">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="benefit-text">
+              <h4>Reducción real de accidentes y enfermedades</h4>
+              <p>Nuestros programas han demostrado reducir hasta un 70% los índices de accidentabilidad en nuestros clientes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="beneficios-right fade-in">
+        <div class="metric-card">
+          <div class="metric-num">-70%</div>
+          <div class="metric-label">Reducción promedio en índice<br>de accidentabilidad de clientes</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">0</div>
+          <div class="metric-label">Multas por incumplimiento<br>normativo en clientes activos</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">+30</div>
+          <div class="metric-label">Normativas y protocolos<br>que manejamos</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num">48h</div>
+          <div class="metric-label">Tiempo de respuesta<br>para urgencias normativas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     ABOUT
+     ========================================== -->
+<section id="nosotros">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-visual fade-in">
+        <div class="about-img-frame">
+          <div class="about-shield">
+            <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 8L12 24V50C12 72 50 92 50 92C50 92 88 72 88 50V24L50 8Z" fill="rgba(242,140,40,0.2)" stroke="#F28C28" stroke-width="3"/>
+              <path d="M34 50L44 60L66 38" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="about-badge-grid">
+            <div class="about-badge">
+              <div class="about-badge-num">15+</div>
+              <div class="about-badge-label">Años de trayectoria</div>
+            </div>
+            <div class="about-badge">
+              <div class="about-badge-num">500+</div>
+              <div class="about-badge-label">Clientes satisfechos</div>
+            </div>
+            <div class="about-badge">
+              <div class="about-badge-num">100%</div>
+              <div class="about-badge-label">Cumplimiento garantizado</div>
+            </div>
+            <div class="about-badge">
+              <div class="about-badge-num">13</div>
+              <div class="about-badge-label">Regiones cubiertas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-text fade-in">
+        <div class="section-label">Sobre AR Prevención</div>
+        <h2 class="section-title">Expertos en seguridad laboral con presencia en todo Chile</h2>
+        <p class="section-subtitle">Somos una empresa especializada en consultoría en prevención de riesgos laborales que entrega soluciones integrales para empresas de distintos rubros. Nuestro enfoque abarca desde la identificación y evaluación de riesgos hasta la implementación de medidas concretas para su mitigación.</p>
+        
+        <p style="font-size:0.9rem;color:var(--mid);line-height:1.75;margin-top:16px;">Trabajamos junto a nuestros clientes para desarrollar programas de prevención efectivos, promoviendo entornos laborales seguros, saludables y sostenibles. Ofrecemos asesoría permanente, capacitación y herramientas actualizadas para asegurar el cumplimiento de la legislación vigente.</p>
+        
+        <div class="about-pillars">
+          <div class="pillar"><div class="pillar-icon">🛡️</div><div class="pillar-text">Enfoque 100% preventivo y proactivo</div></div>
+          <div class="pillar"><div class="pillar-icon">📋</div><div class="pillar-text">Documentación y gestión normativa actualizada</div></div>
+          <div class="pillar"><div class="pillar-icon">🤝</div><div class="pillar-text">Trato cercano, personalizado y comprometido</div></div>
+          <div class="pillar"><div class="pillar-icon">🌍</div><div class="pillar-text">Cobertura nacional: presencial y remoto</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     PROCESO
+     ========================================== -->
+<section id="proceso">
+  <div class="container">
+    <div class="proceso-header fade-in">
+      <div class="section-label">Cómo trabajamos</div>
+      <h2 class="section-title">Un proceso estructurado que garantiza resultados</h2>
+      <p class="section-subtitle">Seguimos una metodología probada que nos permite entregar soluciones precisas, eficientes y sostenibles para cada cliente.</p>
+    </div>
+    
+    <div class="timeline">
+      <div class="timeline-step fade-in">
+        <div class="step-dot">01</div>
+        <div class="step-content">
+          <div class="step-label">Etapa inicial</div>
+          <h3 class="step-title">Diagnóstico y Evaluación Inicial</h3>
+          <p class="step-desc">Realizamos un levantamiento completo de la situación actual de tu empresa: identificamos brechas normativas, riesgos existentes, condiciones de trabajo y estado de la documentación de seguridad.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-step fade-in">
+        <div class="step-dot">02</div>
+        <div class="step-content">
+          <div class="step-label">Planificación</div>
+          <h3 class="step-title">Diseño del Plan de Prevención</h3>
+          <p class="step-desc">Elaboramos un programa a medida con metas claras, plazos definidos y prioridades estratégicas. Incluye matrices IPER, protocolos, reglamentos internos y estructura de brigadas de emergencia.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-step fade-in">
+        <div class="step-dot">03</div>
+        <div class="step-content">
+          <div class="step-label">Ejecución</div>
+          <h3 class="step-title">Implementación y Capacitación</h3>
+          <p class="step-desc">Implementamos las medidas definidas: capacitamos al personal, formamos brigadas, instalamos protocolos y aseguramos que toda la organización comprenda y aplique las nuevas prácticas de seguridad.</p>
+        </div>
+      </div>
+      
+      <div class="timeline-step fade-in">
+        <div class="step-dot">04</div>
+        <div class="step-content">
+          <div class="step-label">Control</div>
+          <h3 class="step-title">Auditoría y Mejora Continua</h3>
+          <p class="step-desc">Realizamos auditorías periódicas, actualizamos la documentación según cambios normativos y medimos el impacto del programa. Te acompañamos en la mejora continua de tu cultura de seguridad.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     TESTIMONIOS
+     ========================================== -->
+<section id="testimonios">
+  <div class="container">
+    <div class="testimonios-header fade-in">
+      <div class="section-label">Lo que dicen nuestros clientes</div>
+      <h2 class="section-title">Empresas que confían en AR Prevención</h2>
+    </div>
+    
+    <div class="slider-wrapper fade-in">
+      <div class="slider-track" id="sliderTrack">
+        
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <div class="testimonial-stars">
+              <svg class="star" viewBox="0 0 24 24" fill="#F28C28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="#F28C28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="#F28C28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="#F28C28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="#F28C28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-text">AR Prevención transformó completamente nuestra gestión de seguridad. En menos de 6 meses logramos pasar una fiscalización de la Inspección del Trabajo sin observaciones por primera vez en años. Su equipo conoce la normativa a la perfección y se involucraron con nuestra empresa como si fuera propia.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">RC</div>
+              <div class="author-info">
+                <div class="author-name">Ricardo Concha</div>
+                <div class="author-role">Gerente de Operaciones · Empresa Constructora Región Metropolitana</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <div class="testimonial-stars">
+              <svg class="star" viewBox="0 0 24 24" fill="#F28C28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="#F28C28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="#F28C28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="#F28C28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="#F28C28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-text">Necesitábamos implementar el Protocolo TMERT y no sabíamos por dónde empezar. AR Prevención nos guió paso a paso, capacitó a nuestro personal y elaboró toda la documentación requerida. Ahora tenemos todo en orden y nuestros trabajadores están mucho más conscientes de cómo cuidar su salud.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">MP</div>
+              <div class="author-info">
+                <div class="author-name">María Paz Vallejos</div>
+                <div class="author-role">Jefa de RRHH · Empresa de Servicios Logísticos, Valparaíso</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <div class="testimonial-quote">"</div>
+            <div class="testimonial-stars">
+              <svg class="star" viewBox="0 0 24 24" fill="#F28C28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="#F28C28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="#F28C28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="#F28C28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg class="star" viewBox="0 0 24 24" fill="#F28C28" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-text">Como colegio, teníamos dudas sobre nuestra obligatoriedad en materia de seguridad laboral. AR Prevención nos explicó todo con claridad, elaboró nuestros planes de evacuación, formó las brigadas y nos capacitó a toda la planta docente y administrativa. Un servicio excepcional y muy profesional.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">JA</div>
+              <div class="author-info">
+                <div class="author-name">Jorge Arancibia</div>
+                <div class="author-role">Director · Institución Educacional, Región del Biobío</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+      <div class="slider-controls">
+        <button class="slider-btn" id="prevBtn" aria-label="Anterior">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F5D8A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="slider-dots" id="sliderDots">
+          <div class="dot active" data-index="0"></div>
+          <div class="dot" data-index="1"></div>
+          <div class="dot" data-index="2"></div>
+        </div>
+        <button class="slider-btn" id="nextBtn" aria-label="Siguiente">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2F5D8A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     BLOG
+     ========================================== -->
+<section id="blog">
+  <div class="container">
+    <div class="blog-header fade-in">
+      <div class="section-label">Blog & Recursos</div>
+      <h2 class="section-title">Conocimiento que protege a tu empresa</h2>
+      <p class="section-subtitle" style="margin:0 auto;">Artículos especializados para mantener a tu organización actualizada en materia de seguridad y salud ocupacional.</p>
+    </div>
+    
+    <div class="blog-grid">
+      
+      <article class="blog-card fade-in">
+        <div class="blog-cover blog-cover-1">
+          <div class="blog-cover-icon">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <span class="blog-tag">Normativa</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">15 Abril 2026 · 6 min de lectura</div>
+          <h3 class="blog-title">Ley 16.744 en 2026: Todo lo que debes saber sobre el seguro de accidentes del trabajo</h3>
+          <p class="blog-excerpt">La Ley 16.744 establece el seguro obligatorio contra accidentes del trabajo y enfermedades profesionales. Te explicamos sus alcances, obligaciones del empleador y las actualizaciones más relevantes para este año.</p>
+          <a href="#contacto" class="blog-read">
+            Leer artículo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </article>
+      
+      <article class="blog-card fade-in">
+        <div class="blog-cover blog-cover-2">
+          <div class="blog-cover-icon">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="blog-tag">Capacitación</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">28 Marzo 2026 · 5 min de lectura</div>
+          <h3 class="blog-title">Cómo implementar el Protocolo TMERT y evitar sanciones de la Inspección del Trabajo</h3>
+          <p class="blog-excerpt">El Protocolo de Vigilancia para Trastornos Musculoesqueléticos (TMERT) es obligatorio en muchas industrias. Aprende qué actividades requieren su aplicación, cómo evaluar los puestos de trabajo y los pasos para estar en regla.</p>
+          <a href="#contacto" class="blog-read">
+            Leer artículo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </article>
+      
+      <article class="blog-card fade-in">
+        <div class="blog-cover blog-cover-3">
+          <div class="blog-cover-icon">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <span class="blog-tag">Emergencias</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">10 Febrero 2026 · 7 min de lectura</div>
+          <h3 class="blog-title">Plan de emergencia empresarial: ¿Por qué es obligatorio y cómo elaborarlo correctamente?</h3>
+          <p class="blog-excerpt">Tener un Plan de Emergencia y Evacuación no es solo una buena práctica: es una exigencia legal en Chile. Descubre qué debe contener, cómo diseñarlo para tu tipo de empresa y por qué la formación de brigadas marca la diferencia ante una emergencia real.</p>
+          <a href="#contacto" class="blog-read">
+            Leer artículo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </article>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     FAQ
+     ========================================== -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-inner">
+      <div class="faq-left fade-in">
+        <div class="section-label">Preguntas Frecuentes</div>
+        <h2 class="section-title">¿Tienes dudas? Tenemos respuestas.</h2>
+        <p class="section-subtitle">Resolvemos las consultas más comunes sobre seguridad laboral, normativas y nuestros servicios.</p>
+        
+        <div class="faq-contact-box" style="margin-top:32px;">
+          <h4>¿No encuentras tu respuesta?</h4>
+          <p>Nuestro equipo está disponible para resolver cualquier consulta sobre prevención de riesgos en tu empresa.</p>
+          <a href="#contacto" class="btn btn-primary">Consultar ahora</a>
+        </div>
+      </div>
+      
+      <div class="faq-list fade-in">
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">¿Qué empresas están obligadas a cumplir con la Ley 16.744?</span>
+            <div class="faq-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6D6D6D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">La Ley 16.744 aplica a todas las empresas en Chile que tengan trabajadores contratados, sin importar su tamaño o rubro. Esto incluye pymes, grandes empresas, instituciones educacionales, administradores de edificios y condominios. Todos los empleadores tienen la obligación de prevenir accidentes y enfermedades profesionales.</div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">¿Cuáles son las multas por incumplimiento de normas de seguridad?</span>
+            <div class="faq-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6D6D6D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Las sanciones pueden ir desde multas de entre 1 y 150 UTM según la gravedad de la infracción, hasta la paralización de actividades y responsabilidad penal en casos de accidentes graves o fatales. Además, el empleador puede enfrentar demandas civiles. Invertir en prevención es siempre más económico que asumir las consecuencias de un accidente.</div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">¿Qué incluye el servicio de consultoría de AR Prevención?</span>
+            <div class="faq-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6D6D6D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Nuestro servicio incluye diagnóstico inicial, elaboración de matrices de riesgo (IPER), reglamentos internos, programas de prevención, planes de emergencia, capacitación del personal, formación de brigadas, gestión documental y asesoría permanente. Cada servicio se adapta a las necesidades específicas de tu empresa y rubro.</div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">¿Atienden empresas pequeñas o solo grandes compañías?</span>
+            <div class="faq-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6D6D6D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Atendemos empresas de todos los tamaños. Para pymes y microempresas tenemos planes adaptados a sus presupuestos y necesidades específicas. La obligación legal no distingue tamaños: todas las empresas deben cumplir, y nosotros hacemos que ese proceso sea simple y asequible para cada realidad.</div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">¿Trabajan en regiones o solo en la Región Metropolitana?</span>
+            <div class="faq-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6D6D6D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Ofrecemos cobertura a nivel nacional. Trabajamos tanto de forma presencial como remota, lo que nos permite atender empresas en todas las regiones del país con la misma calidad de servicio. La modalidad remota es especialmente útil para asesorías, capacitaciones y gestión documental.</div>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-q-text">¿Cuánto tiempo toma implementar un programa de prevención?</span>
+            <div class="faq-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6D6D6D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Depende del tamaño de la empresa y su estado actual. Para regularizaciones básicas podemos actuar en 2-4 semanas. Un programa completo de prevención puede implementarse entre 1 y 3 meses. Ante fiscalizaciones inminentes, ofrecemos respuesta de emergencia en 48 horas para la documentación crítica.</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     CONTACTO
+     ========================================== -->
+<section id="contacto">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-info fade-in">
+        <div class="section-label">Contáctanos</div>
+        <h2 class="section-title">Hablemos sobre la seguridad de tu empresa</h2>
+        <p class="section-subtitle">Cuéntanos tu situación y te daremos una orientación inicial sin costo. Estamos aquí para ayudarte.</p>
+        
+        <div class="contact-details">
+          <div class="contact-detail">
+            <div class="contact-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F5D8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.62 4.52 2 2 0 0 1 3.59 2.34h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4>Teléfono / WhatsApp</h4>
+              <p>+56 9 9814 9965</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F5D8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4>Correo Electrónico</h4>
+              <p>contacto@arprevencion.cl</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F5D8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4>Horario de Atención</h4>
+              <p>Lunes a Viernes, horario laboral<br>Urgencias normativas: disponibilidad ampliada</p>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F5D8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-detail-text">
+              <h4>Cobertura</h4>
+              <p>Chile · Presencial y Remoto<br>Disponible en todas las regiones</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form-wrap fade-in">
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre *</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+              <span class="field-error" id="nombreError">Ingresa tu nombre</span>
+            </div>
+            <div class="form-group">
+              <label for="empresa">Empresa *</label>
+              <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa">
+              <span class="field-error" id="empresaError">Ingresa el nombre de tu empresa</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Correo Electrónico *</label>
+              <input type="email" id="email" name="email" placeholder="tu@empresa.cl">
+              <span class="field-error" id="emailError">Ingresa un correo válido</span>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+56 9 XXXX XXXX">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="servicio">Servicio de interés *</label>
+            <select id="servicio" name="servicio">
+              <option value="">Selecciona un servicio...</option>
+              <option value="consultoria">Consultoría en Prevención de Riesgos</option>
+              <option value="normativa">Cumplimiento Normativo</option>
+              <option value="emergencias">Planes de Emergencia y Evacuación</option>
+              <option value="capacitacion">Capacitación y Formación</option>
+              <option value="ambiental">Gestión Ambiental</option>
+              <option value="ergonomia">Ergonomía y Salud Ocupacional</option>
+              <option value="otro">Otro / Consulta General</option>
+            </select>
+            <span class="field-error" id="servicioError">Selecciona un servicio</span>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu empresa y qué necesitas..."></textarea>
+          </div>
+          <button type="submit" class="form-submit-btn">
+            Enviar Solicitud de Asesoría
+          </button>
+          <div class="form-feedback" id="formFeedback"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     CTA FINAL
+     ========================================== -->
+<section id="cta-final">
+  <div class="container">
+    <div class="cta-final-content fade-in">
+      <div class="section-label">¿Listo para proteger tu empresa?</div>
+      <h2 class="section-title">Un accidente puede costar más que toda tu inversión en seguridad</h2>
+      <p class="section-subtitle">No esperes una multa, un accidente o una paralización para actuar. Con AR Prevención, el cumplimiento normativo y la seguridad de tus trabajadores están garantizados.</p>
+      <div class="cta-final-btns">
+        <a href="#contacto" class="btn btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.62 4.52 2 2 0 0 1 3.59 2.34h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/></svg>
+          Solicitar Asesoría Gratuita
+        </a>
+        <a href="https://wa.me/56998149965?text=Hola%2C%20quiero%20información%20sobre%20sus%20servicios" target="_blank" class="btn btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     FOOTER
+     ========================================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="logo-mark">AR</div>
+          <div class="logo-text" style="color:white;">
+            AR Prevención
+            <span>Seguridad & Salud Ocupacional</span>
+          </div>
+        </div>
+        <p class="footer-tagline">Consultoría especializada en prevención de riesgos laborales, seguridad y salud ocupacional, medio ambiente y gestión de emergencias. Soluciones integrales para empresas en todo Chile.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://wa.me/56998149965" target="_blank" class="social-link" aria-label="WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h5>Servicios</h5>
+        <ul class="footer-links">
+          <li><a href="#servicios">Consultoría en Prevención</a></li>
+          <li><a href="#servicios">Cumplimiento Normativo</a></li>
+          <li><a href="#servicios">Planes de Emergencia</a></li>
+          <li><a href="#servicios">Capacitaciones</a></li>
+          <li><a href="#servicios">Gestión Ambiental</a></li>
+          <li><a href="#servicios">Ergonomía Laboral</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h5>Empresa</h5>
+        <ul class="footer-links">
+          <li><a href="#nosotros">Sobre Nosotros</a></li>
+          <li><a href="#proceso">Proceso de Trabajo</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#faq">Preguntas Frecuentes</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <div class="footer-contact-list">
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1 19.79 19.79 0 0 1 1.62 4.52 2 2 0 0 1 3.59 2.34h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17z"/></svg>
+            +56 9 9814 9965
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            contacto@arprevencion.cl
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Chile · Cobertura Nacional<br>Presencial y Remoto
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Lun–Vie, horario laboral
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="footer-bottom">
+      <span>© 2026 AR Prevención. Todos los derechos reservados.</span>
+      <span>Hecho con compromiso por la seguridad laboral en Chile · <a href="#contacto">Política de Privacidad</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ==========================================
+     WHATSAPP FLOAT
+     ========================================== -->
+<div class="whatsapp-float">
+  <a href="https://wa.me/56998149965?text=Hola%2C%20quiero%20información%20sobre%20sus%20servicios" target="_blank" class="whatsapp-btn" aria-label="Contactar por WhatsApp">
+    <div class="whatsapp-icon-wrap">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+    </div>
+    <span>WhatsApp</span>
+  </a>
+</div>
+
+<!-- ==========================================
+     JAVASCRIPT
+     ========================================== -->
+<script>
+// ── Navbar scroll ──────────────────────────────────────────
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ── Hamburger menu ─────────────────────────────────────────
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+let menuOpen = false;
+
+hamburgerBtn.addEventListener('click', () => {
+  menuOpen = !menuOpen;
+  mobileMenu.style.display = menuOpen ? 'flex' : 'none';
+});
+
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    menuOpen = false;
+    mobileMenu.style.display = 'none';
+  });
+});
+
+// ── Intersection Observer animations ──────────────────────
+const observerOptions = { threshold: 0.12, rootMargin: '0px 0px -40px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      const siblings = entry.target.parentElement.querySelectorAll('.fade-in');
+      let delay = 0;
+      siblings.forEach((sib, idx) => {
+        if (sib === entry.target) delay = idx * 80;
+      });
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, Math.min(delay, 400));
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ── Slider ─────────────────────────────────────────────────
+const track = document.getElementById('sliderTrack');
+const dots = document.querySelectorAll('.dot');
+let currentSlide = 0;
+const totalSlides = 3;
+
+function goToSlide(index) {
+  currentSlide = (index + totalSlides) % totalSlides;
+  track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+}
+
+document.getElementById('prevBtn').addEventListener('click', () => goToSlide(currentSlide - 1));
+document.getElementById('nextBtn').addEventListener('click', () => goToSlide(currentSlide + 1));
+dots.forEach(dot => dot.addEventListener('click', () => goToSlide(+dot.dataset.index)));
+
+// Auto-advance
+setInterval(() => goToSlide(currentSlide + 1), 5000);
+
+// ── FAQ accordion ──────────────────────────────────────────
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    const item = question.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    
+    // Toggle current
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// ── Timeline hover ─────────────────────────────────────────
+document.querySelectorAll('.timeline-step').forEach(step => {
+  step.addEventListener('mouseenter', () => step.classList.add('active'));
+  step.addEventListener('mouseleave', () => step.classList.remove('active'));
+});
+
+// ── Contact form validation ────────────────────────────────
+const form = document.getElementById('contactForm');
+const feedback = document.getElementById('formFeedback');
+
+function showError(fieldId, errorId) {
+  const field = document.getElementById(fieldId);
+  const err = document.getElementById(errorId);
+  if (field) field.classList.add('error');
+  if (err) err.classList.add('show');
+}
+
+function clearErrors() {
+  form.querySelectorAll('input, select, textarea').forEach(f => f.classList.remove('error'));
+  form.querySelectorAll('.field-error').forEach(e => e.classList.remove('show'));
+  feedback.className = 'form-feedback';
+  feedback.textContent = '';
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  clearErrors();
+  
+  const nombre = document.getElementById('nombre').value.trim();
+  const empresa = document.getElementById('empresa').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const servicio = document.getElementById('servicio').value;
+  
+  let valid = true;
+  
+  if (!nombre) { showError('nombre', 'nombreError'); valid = false; }
+  if (!empresa) { showError('empresa', 'empresaError'); valid = false; }
+  if (!email || !isValidEmail(email)) { showError('email', 'emailError'); valid = false; }
+  if (!servicio) { showError('servicio', 'servicioError'); valid = false; }
+  
+  if (!valid) return;
+  
+  // Simulate sending
+  const btn = form.querySelector('.form-submit-btn');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+  
+  setTimeout(() => {
+    form.reset();
+    btn.textContent = 'Enviar Solicitud de Asesoría';
+    btn.disabled = false;
+    feedback.className = 'form-feedback success';
+    feedback.textContent = '✓ ¡Mensaje enviado! Te contactaremos a la brevedad.';
+    setTimeout(() => { feedback.className = 'form-feedback'; feedback.textContent = ''; }, 6000);
+  }, 1400);
+});
+
+// Clear error on input
+form.querySelectorAll('input, select, textarea').forEach(field => {
+  field.addEventListener('input', () => {
+    field.classList.remove('error');
+    const errorEl = document.getElementById(field.id + 'Error');
+    if (errorEl) errorEl.classList.remove('show');
+  });
+});
+
+// ── Smooth scroll for nav links ───────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    const target = document.querySelector(anchor.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
