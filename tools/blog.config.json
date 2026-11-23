@@ -1,0 +1,85 @@
+{
+  "site": "https://arprevencion.cl",
+  "nombre": "AR Prevención",
+  "lang": "es-CL",
+  "favicon": "favicon.ico",
+  "ancla_blog": "#blog",
+  "logo_html": "AR&nbsp;<span style=\"color:#F28C28\">Prevención</span>",
+  "nav": [
+    [
+      "Servicios",
+      "#servicios"
+    ],
+    [
+      "Nosotros",
+      "#nosotros"
+    ],
+    [
+      "Blog",
+      "#blog"
+    ],
+    [
+      "Preguntas",
+      "#faq"
+    ],
+    [
+      "Contacto",
+      "#contacto"
+    ]
+  ],
+  "cta": {
+    "titulo": "¿Necesitas ayuda con esto en tu empresa?",
+    "texto": "Conversemos y revisamos tu caso: diagnóstico, implementación y acompañamiento en prevención de riesgos.",
+    "boton": "Solicitar asesoría",
+    "boton_corto": "Asesoría",
+    "url": "https://wa.me/56998149965?text=Hola%2C%20le%C3%AD%20su%20blog%20y%20quiero%20solicitar%20una%20asesor%C3%ADa"
+  },
+  "fuentes_html": "<style id=\"local-fonts\">\n/* Tipografías alojadas en el sitio (Fontsource, licencia OFL) */\n@font-face{font-family:\"Syne\";font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/syne-latin-400-normal.woff2) format(\"woff2\")}\n@font-face{font-family:\"Syne\";font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/syne-latin-500-normal.woff2) format(\"woff2\")}\n@font-face{font-family:\"Syne\";font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/syne-latin-600-normal.woff2) format(\"woff2\")}\n@font-face{font-family:\"Syne\";font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/syne-latin-700-normal.woff2) format(\"woff2\")}\n@font-face{font-family:\"Syne\";font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/syne-latin-800-normal.woff2) format(\"woff2\")}\n@font-face{font-family:\"DM Sans\";font-style:normal;font-weight:300;font-display:swap;src:url(assets/fonts/dm-sans-latin-300-normal.woff2) format(\"woff2\")}\n@font-face{font-family:\"DM Sans\";font-style:italic;font-weight:300;font-display:swap;src:url(assets/fonts/dm-sans-latin-300-italic.woff2) format(\"woff2\")}\n@font-face{font-family:\"DM Sans\";font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/dm-sans-latin-400-normal.woff2) format(\"woff2\")}\n@font-face{font-family:\"DM Sans\";font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/dm-sans-latin-500-normal.woff2) format(\"woff2\")}\n</style>",
+  "nota_articulo": "Este artículo entrega información general y no reemplaza la asesoría profesional para tu caso. Revisa siempre la normativa vigente.",
+  "tema": {
+    "fondo": "#F4F7FA",
+    "fondo2": "#FFFFFF",
+    "texto": "#2B2B2B",
+    "suave": "#6D6D6D",
+    "acento": "#E07B17",
+    "acento2": "#1E3A5F",
+    "borde": "#E6ECF2",
+    "titulos": "#1E3A5F",
+    "boton_texto": "#FFFFFF",
+    "cabecera": "#1E3A5F",
+    "cabecera_texto": "#FFFFFF",
+    "fuente_titulos": "'Syne',sans-serif",
+    "fuente_texto": "'DM Sans',sans-serif",
+    "h1_max": "2rem",
+    "h1_min": "1.5rem"
+  },
+  "og_home": {
+    "imagen": null,
+    "kicker": "Prevención de riesgos",
+    "titulo": "Seguridad y salud ocupacional para empresas en Chile",
+    "fondo": "linear-gradient(135deg,#1E3A5F,#2F5D8A 60%,#F28C28)"
+  },
+  "fuente": {
+    "tipo": "dom",
+    "modal": ".blog-modal[data-slug]",
+    "titulo": "h2",
+    "categoria": ".blog-modal-cat",
+    "cuerpo": ".blog-modal-body",
+    "excluir": []
+  },
+  "llms": {
+    "resumen": "AR Prevención es una consultora chilena especializada en prevención de riesgos, seguridad y salud ocupacional, medio ambiente y gestión de emergencias para empresas de todos los rubros. Apoya en cumplimiento normativo (Ley 16.744 y DS 44), matrices de riesgo, protocolos MINSAL, planes de emergencia, brigadas y capacitaciones.",
+    "datos": [
+      "Cobertura: todo Chile, en modalidad presencial y remota",
+      "Contacto: WhatsApp +56 9 9814 9965"
+    ],
+    "paginas": [
+      [
+        "Inicio",
+        "",
+        "servicios, nosotros, proceso de trabajo, blog, preguntas frecuentes y contacto"
+      ]
+    ],
+    "titulo_blog": "Blog de prevención de riesgos"
+  }
+}

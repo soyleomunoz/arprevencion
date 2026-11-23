@@ -10,6 +10,14 @@
 <meta property="og:description" content="Soluciones integrales en prevención de riesgos laborales para empresas de todos los rubros en Chile.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CL">
+<meta property="og:url" content="https://arprevencion.cl/">
+<meta property="og:site_name" content="AR Prevención">
+<meta property="og:image" content="https://arprevencion.cl/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://arprevencion.cl/og-image.jpg">
+<link rel="canonical" href="https://arprevencion.cl/">
 <title>AR Prevención | Consultoría en Seguridad y Salud Ocupacional</title>
 <style id="local-fonts">
 /* Tipografías alojadas en el sitio (Fontsource, licencia OFL) */
@@ -1745,6 +1753,27 @@ footer {
   .testimonial-card { padding: 32px 24px; }
   .contact-form-wrap { padding: 32px 24px; }
 }
+
+/* ── Lector de artículos del blog (modal). Cada artículo también existe como página
+      estática en blog/<slug>.html, generada por tools/blog_estatico.py ── */
+.blog-modal{position:fixed;inset:0;z-index:2000;background:rgba(14,28,46,.72);backdrop-filter:blur(4px);display:flex;align-items:flex-start;justify-content:center;padding:4vh 16px;overflow-y:auto}
+.blog-modal[hidden]{display:none}
+.blog-modal-box{position:relative;background:#fff;border-radius:20px;max-width:780px;width:100%;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.35);animation:blogIn .3s ease}
+@keyframes blogIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.blog-modal-box{animation:none}}
+.blog-modal-close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--navy);font-size:1.6rem;line-height:1;cursor:pointer;z-index:2}
+.blog-modal-cover{width:100%;aspect-ratio:21/8;object-fit:cover;display:block}
+.blog-modal-inner{padding:28px 36px 36px}
+.blog-modal-cat{display:inline-block;background:var(--orange);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.blog-modal h2{font-family:var(--font-display);color:var(--navy);font-size:clamp(1.4rem,3.4vw,1.9rem);line-height:1.25;margin:14px 0 6px}
+.blog-modal-meta{color:var(--mid);font-size:.88rem;margin-bottom:18px}
+.blog-modal-body{color:var(--dark);line-height:1.75}
+.blog-modal-body h3{font-family:var(--font-display);color:var(--navy);font-size:1.2rem;margin:26px 0 8px}
+.blog-modal-body p{margin:0 0 14px}.blog-modal-body ul,.blog-modal-body ol{margin:0 0 16px;padding-left:22px}.blog-modal-body li{margin-bottom:6px}
+.blog-modal-cta{margin-top:26px;padding:20px;border-radius:14px;background:var(--ice);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.blog-modal-cta p{margin:0;color:var(--navy)}
+body.blog-modal-abierto{overflow:hidden}
+@media(max-width:600px){.blog-modal-inner{padding:22px 20px 28px}}
 </style>
 <!-- Verificación de dominio en Meta: reemplaza CODIGO y quita los signos de comentario.
 <meta name="facebook-domain-verification" content="CODIGO"> -->
@@ -2247,7 +2276,7 @@ footer {
     
     <div class="blog-grid">
       
-      <article class="blog-card fade-in">
+      <article class="blog-card fade-in" data-articulo="ley-16744-seguro-accidentes-del-trabajo">
         <div class="blog-cover blog-cover-1">
           <div class="blog-cover-icon">
             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
@@ -2258,14 +2287,14 @@ footer {
           <div class="blog-meta">15 Abril 2026 · 6 min de lectura</div>
           <h3 class="blog-title">Ley 16.744 en 2026: Todo lo que debes saber sobre el seguro de accidentes del trabajo</h3>
           <p class="blog-excerpt">La Ley 16.744 establece el seguro obligatorio contra accidentes del trabajo y enfermedades profesionales. Te explicamos sus alcances, obligaciones del empleador y las actualizaciones más relevantes para este año.</p>
-          <a href="#contacto" class="blog-read">
+          <a href="blog/ley-16744-seguro-accidentes-del-trabajo.html" class="blog-read" data-articulo="ley-16744-seguro-accidentes-del-trabajo">
             Leer artículo
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
       </article>
       
-      <article class="blog-card fade-in">
+      <article class="blog-card fade-in" data-articulo="protocolo-tmert-como-implementarlo">
         <div class="blog-cover blog-cover-2">
           <div class="blog-cover-icon">
             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -2276,14 +2305,14 @@ footer {
           <div class="blog-meta">28 Marzo 2026 · 5 min de lectura</div>
           <h3 class="blog-title">Cómo implementar el Protocolo TMERT y evitar sanciones de la Inspección del Trabajo</h3>
           <p class="blog-excerpt">El Protocolo de Vigilancia para Trastornos Musculoesqueléticos (TMERT) es obligatorio en muchas industrias. Aprende qué actividades requieren su aplicación, cómo evaluar los puestos de trabajo y los pasos para estar en regla.</p>
-          <a href="#contacto" class="blog-read">
+          <a href="blog/protocolo-tmert-como-implementarlo.html" class="blog-read" data-articulo="protocolo-tmert-como-implementarlo">
             Leer artículo
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
       </article>
       
-      <article class="blog-card fade-in">
+      <article class="blog-card fade-in" data-articulo="plan-de-emergencia-empresarial-como-elaborarlo">
         <div class="blog-cover blog-cover-3">
           <div class="blog-cover-icon">
             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
@@ -2294,7 +2323,7 @@ footer {
           <div class="blog-meta">10 Febrero 2026 · 7 min de lectura</div>
           <h3 class="blog-title">Plan de emergencia empresarial: ¿Por qué es obligatorio y cómo elaborarlo correctamente?</h3>
           <p class="blog-excerpt">Tener un Plan de Emergencia y Evacuación no es solo una buena práctica: es una exigencia legal en Chile. Descubre qué debe contener, cómo diseñarlo para tu tipo de empresa y por qué la formación de brigadas marca la diferencia ante una emergencia real.</p>
-          <a href="#contacto" class="blog-read">
+          <a href="blog/plan-de-emergencia-empresarial-como-elaborarlo.html" class="blog-read" data-articulo="plan-de-emergencia-empresarial-como-elaborarlo">
             Leer artículo
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
@@ -3014,6 +3043,191 @@ window.TRACKING = {
 
   var c = get();
   if (c === 'granted') load(); else if (c !== 'denied') show();
+})();
+</script>
+
+<!-- ===================== ARTÍCULOS DEL BLOG ===================== -->
+<div class="blog-modal" id="articulo-ley-16744-seguro-accidentes-del-trabajo" data-slug="ley-16744-seguro-accidentes-del-trabajo" data-fecha="2026-04-15" data-lectura="6" data-portada="img/blog/ley-16744-seguro-accidentes-del-trabajo.jpg" data-resumen="La Ley 16.744 establece el seguro obligatorio contra accidentes del trabajo y enfermedades profesionales. Te explicamos sus alcances, obligaciones del empleador y las actualizaciones más relevantes para este año." role="dialog" aria-modal="true" aria-labelledby="titulo-ley-16744-seguro-accidentes-del-trabajo" hidden>
+  <div class="blog-modal-box">
+    <button type="button" class="blog-modal-close" aria-label="Cerrar artículo">&times;</button>
+    <img class="blog-modal-cover" src="img/blog/ley-16744-seguro-accidentes-del-trabajo.jpg" alt="" loading="lazy" width="1200" height="630">
+    <div class="blog-modal-inner">
+      <span class="blog-modal-cat">Normativa</span>
+      <h2 id="titulo-ley-16744-seguro-accidentes-del-trabajo">Ley 16.744 en 2026: Todo lo que debes saber sobre el seguro de accidentes del trabajo</h2>
+      <p class="blog-modal-meta">15 de abril de 2026 · 6 min de lectura</p>
+      <div class="blog-modal-body">
+<p>La <strong>Ley 16.744</strong> es la base de la seguridad laboral en Chile. Crea un seguro social obligatorio que protege a las personas trabajadoras frente a accidentes del trabajo y enfermedades profesionales, y al mismo tiempo obliga a cada empleador a prevenir esos riesgos. Aunque tiene más de cinco décadas, sus reglas se han actualizado varias veces y hoy convive con un nuevo reglamento de gestión preventiva que cambió la forma de cumplir.</p>
+<h3>Qué cubre el seguro</h3>
+<p>El seguro protege frente a tres situaciones:</p>
+<ul>
+<li><strong>Accidentes del trabajo:</strong> lesiones que ocurren a causa o con ocasión del trabajo.</li>
+<li><strong>Accidentes de trayecto:</strong> los que ocurren en el trayecto directo entre la casa y el lugar de trabajo, o entre dos lugares de trabajo.</li>
+<li><strong>Enfermedades profesionales:</strong> las causadas de manera directa por el ejercicio de la profesión o del trabajo.</li>
+</ul>
+<p>Las prestaciones incluyen atención médica hasta la recuperación, subsidios mientras dura la incapacidad, indemnizaciones y pensiones según el grado de invalidez. El seguro lo administran las mutualidades (ACHS, IST y Mutual de Seguridad) y el Instituto de Seguridad Laboral (ISL).</p>
+<h3>Cuánto cuesta y por qué la prevención baja el costo</h3>
+<p>La cotización es de cargo del empleador y se calcula sobre las remuneraciones imponibles:</p>
+<ul>
+<li><strong>Cotización básica:</strong> 0,90%.</li>
+<li><strong>Cotización adicional diferenciada:</strong> depende del riesgo de la actividad y de la siniestralidad de la empresa. La tasa presunta por actividad va de 0% a 3,4%.</li>
+<li><strong>Ley SANNA:</strong> 0,03%, que financia el seguro para el acompañamiento de niños y niñas con enfermedades graves.</li>
+</ul>
+<p>La cotización adicional se revisa cada dos años según los accidentes y días perdidos de la empresa. En la práctica, una buena gestión preventiva no solo protege a las personas: también puede rebajar el costo del seguro, mientras que una alta siniestralidad lo encarece.</p>
+<h3>Obligaciones del empleador</h3>
+<p>El artículo 184 del Código del Trabajo obliga al empleador a tomar todas las medidas necesarias para proteger eficazmente la vida y salud de sus trabajadores. En términos concretos, eso significa:</p>
+<ul>
+<li>Identificar peligros y evaluar riesgos en una <strong>Matriz de Identificación de Peligros y Evaluación de Riesgos (MIPER)</strong>.</li>
+<li>Elaborar y cumplir un <strong>programa de trabajo en prevención de riesgos</strong>.</li>
+<li>Informar a cada trabajador sobre los riesgos de su puesto y capacitarlo.</li>
+<li>Mantener al día el <strong>Reglamento Interno de Higiene y Seguridad</strong>.</li>
+<li>Constituir un <strong>Comité Paritario de Higiene y Seguridad</strong> cuando la empresa tenga más de 25 trabajadores, y un Departamento de Prevención de Riesgos cuando tenga más de 100.</li>
+<li>Denunciar cada accidente o enfermedad profesional al organismo administrador mediante la DIAT o la DIEP.</li>
+</ul>
+<h3>Lo que cambió con el Decreto Supremo 44</h3>
+<p>Desde el <strong>1 de febrero de 2025</strong> rige el DS 44, nuevo reglamento sobre gestión preventiva de los riesgos laborales, que reemplazó a los antiguos DS 40 y DS 54. Sus principales cambios:</p>
+<ul>
+<li>Exige un <strong>Sistema de Gestión de Seguridad y Salud en el Trabajo</strong>, con una política de SST firmada por la empresa, y uno simplificado para las empresas más pequeñas.</li>
+<li>Incorpora la <strong>mejora continua</strong> y el <strong>enfoque de género</strong> en la gestión preventiva.</li>
+<li>Refuerza la <strong>capacitación</strong>: debe ser periódica, verificable y adecuada a los riesgos de cada puesto.</li>
+<li>Obliga a contar con un <strong>plan de gestión de riesgos de emergencias, catástrofes o desastres</strong>.</li>
+<li>La Dirección del Trabajo fiscaliza con un <strong>Formulario Único de Fiscalización (FUF)</strong> que revisa punto por punto estos documentos.</li>
+</ul>
+<p>A esto se suma la <strong>Ley Karin</strong> (Ley 21.643), vigente desde agosto de 2024, que exige un protocolo de prevención del acoso laboral, el acoso sexual y la violencia en el trabajo, y que se conecta con la gestión de riesgos psicosociales.</p>
+<h3>Cómo saber si tu empresa está al día</h3>
+<p>Revisa si tienes vigentes tu MIPER, tu programa de trabajo preventivo, el registro de capacitaciones, el reglamento interno y el plan de emergencias. Si falta alguno, o si no recuerdas cuándo fue la última actualización, es buen momento para una revisión.</p>
+<p>En AR Prevención realizamos diagnósticos de cumplimiento normativo y te acompañamos a implementar lo que falte, para que tu empresa esté preparada ante una fiscalización y, sobre todo, para que tu equipo trabaje seguro.</p>
+      </div>
+      <div class="blog-modal-cta"><p><strong>¿Necesitas ayuda con esto en tu empresa?</strong> Conversemos y revisamos tu caso.</p><a href="#contacto" class="btn btn-primary" data-cerrar-articulo>Solicitar asesoría</a></div>
+    </div>
+  </div>
+</div>
+<div class="blog-modal" id="articulo-protocolo-tmert-como-implementarlo" data-slug="protocolo-tmert-como-implementarlo" data-fecha="2026-03-28" data-lectura="5" data-portada="img/blog/protocolo-tmert-como-implementarlo.jpg" data-resumen="El Protocolo de Vigilancia para Trastornos Musculoesqueléticos (TMERT) es obligatorio en muchas industrias. Aprende qué actividades requieren su aplicación, cómo evaluar los puestos de trabajo y los pasos para estar en regla." role="dialog" aria-modal="true" aria-labelledby="titulo-protocolo-tmert-como-implementarlo" hidden>
+  <div class="blog-modal-box">
+    <button type="button" class="blog-modal-close" aria-label="Cerrar artículo">&times;</button>
+    <img class="blog-modal-cover" src="img/blog/protocolo-tmert-como-implementarlo.jpg" alt="" loading="lazy" width="1200" height="630">
+    <div class="blog-modal-inner">
+      <span class="blog-modal-cat">Capacitación</span>
+      <h2 id="titulo-protocolo-tmert-como-implementarlo">Cómo implementar el Protocolo TMERT y evitar sanciones de la Inspección del Trabajo</h2>
+      <p class="blog-modal-meta">28 de marzo de 2026 · 5 min de lectura</p>
+      <div class="blog-modal-body">
+<p>Los trastornos musculoesqueléticos son una de las principales causas de enfermedad profesional en Chile: dolores y lesiones de espalda, cuello, hombros, codos, muñecas y manos que se van acumulando con el trabajo diario. Para prevenirlos, el Ministerio de Salud exige aplicar el <strong>Protocolo de Vigilancia Ocupacional por Exposición a Factores de Riesgo de Trastornos Musculoesqueléticos</strong>, conocido como protocolo TMERT.</p>
+<h3>Qué es y cuál es la versión vigente</h3>
+<p>El protocolo establece cómo identificar, evaluar y controlar los factores de riesgo musculoesquelético en los puestos de trabajo, y cómo vigilar la salud de las personas expuestas. Fue actualizado en marzo de 2024, ajustado en diciembre de ese año y su <strong>versión 3</strong> se aprobó mediante la Resolución Exenta N° 1.697 del Ministerio de Salud, publicada en el Diario Oficial el <strong>25 de febrero de 2026</strong>, que dejó sin efecto las resoluciones anteriores.</p>
+<h3>A qué empresas aplica</h3>
+<p>Aplica a todas las empresas, sin importar su rubro ni su tamaño, en las que existan puestos con alguno de estos factores de riesgo:</p>
+<ul>
+<li><strong>Movimientos repetitivos</strong> de extremidades superiores, como en líneas de producción, cajas o digitación.</li>
+<li><strong>Posturas estáticas o forzadas</strong>, por ejemplo trabajar de pie muchas horas o con los brazos sobre los hombros.</li>
+<li><strong>Manipulación manual de cargas</strong>, de pacientes o de personas.</li>
+<li><strong>Vibraciones</strong> de cuerpo completo o de mano y brazo, por uso de maquinaria o herramientas.</li>
+</ul>
+<h3>Paso a paso para implementarlo</h3>
+<ol>
+<li><strong>Identificación inicial:</strong> la empresa revisa cada puesto de trabajo y determina si existen factores de riesgo de TME.</li>
+<li><strong>Identificación avanzada:</strong> en los puestos donde se detectó riesgo, se profundiza el análisis. Las empresas pequeñas pueden recibir asistencia técnica de su organismo administrador.</li>
+<li><strong>Evaluación:</strong> cuando corresponde, el organismo administrador (mutualidad o ISL) evalúa el nivel de riesgo con metodologías específicas.</li>
+<li><strong>Medidas de control:</strong> la empresa implementa cambios en el puesto, la organización del trabajo, pausas, rotaciones o ayudas mecánicas hasta llevar el riesgo a un nivel aceptable.</li>
+<li><strong>Vigilancia de la salud:</strong> las personas expuestas ingresan a un programa de vigilancia médica a cargo del organismo administrador.</li>
+<li><strong>Registro y seguimiento:</strong> todo debe quedar documentado e integrado en la MIPER y en el programa de trabajo preventivo de la empresa.</li>
+</ol>
+<h3>Qué revisa la fiscalización</h3>
+<p>La Seremi de Salud y la Dirección del Trabajo pueden pedir la evidencia de cada etapa: la identificación de puestos, los resultados de la evaluación, las medidas aplicadas y la capacitación entregada a los trabajadores. No contar con ella puede terminar en multas y, más importante, en lesiones que se pudieron evitar.</p>
+<h3>Errores frecuentes</h3>
+<ul>
+<li>Pensar que el protocolo solo aplica a fábricas: también alcanza a oficinas, comercio, bodegas y salud.</li>
+<li>Hacer la identificación una vez y no actualizarla cuando cambian los procesos o los puestos.</li>
+<li>Detectar el riesgo, pero no implementar ni registrar las medidas de control.</li>
+<li>No involucrar al Comité Paritario ni a los propios trabajadores, que son quienes mejor conocen su puesto.</li>
+</ul>
+<p>En AR Prevención te ayudamos a identificar los puestos con riesgo, coordinar la evaluación con tu organismo administrador y diseñar medidas de control realistas para tu operación.</p>
+      </div>
+      <div class="blog-modal-cta"><p><strong>¿Necesitas ayuda con esto en tu empresa?</strong> Conversemos y revisamos tu caso.</p><a href="#contacto" class="btn btn-primary" data-cerrar-articulo>Solicitar asesoría</a></div>
+    </div>
+  </div>
+</div>
+<div class="blog-modal" id="articulo-plan-de-emergencia-empresarial-como-elaborarlo" data-slug="plan-de-emergencia-empresarial-como-elaborarlo" data-fecha="2026-02-10" data-lectura="7" data-portada="img/blog/plan-de-emergencia-empresarial-como-elaborarlo.jpg" data-resumen="Tener un Plan de Emergencia y Evacuación no es solo una buena práctica: es una exigencia legal en Chile. Descubre qué debe contener, cómo diseñarlo para tu tipo de empresa y por qué la formación de brigadas marca la diferencia ante una emergencia real." role="dialog" aria-modal="true" aria-labelledby="titulo-plan-de-emergencia-empresarial-como-elaborarlo" hidden>
+  <div class="blog-modal-box">
+    <button type="button" class="blog-modal-close" aria-label="Cerrar artículo">&times;</button>
+    <img class="blog-modal-cover" src="img/blog/plan-de-emergencia-empresarial-como-elaborarlo.jpg" alt="" loading="lazy" width="1200" height="630">
+    <div class="blog-modal-inner">
+      <span class="blog-modal-cat">Emergencias</span>
+      <h2 id="titulo-plan-de-emergencia-empresarial-como-elaborarlo">Plan de emergencia empresarial: ¿Por qué es obligatorio y cómo elaborarlo correctamente?</h2>
+      <p class="blog-modal-meta">10 de febrero de 2026 · 7 min de lectura</p>
+      <div class="blog-modal-body">
+<p>Chile convive con sismos, incendios forestales, tsunamis, inundaciones y olas de calor. En ese escenario, que una empresa sepa exactamente qué hacer en los primeros minutos de una emergencia puede marcar la diferencia entre un susto y una tragedia. Por eso el plan de emergencia es una obligación legal, y no un documento para guardar en un cajón.</p>
+<h3>Por qué es obligatorio</h3>
+<p>El artículo 184 del Código del Trabajo obliga al empleador a proteger la vida y salud de sus trabajadores, incluyendo la respuesta ante emergencias. Desde el 1 de febrero de 2025, el <strong>Decreto Supremo 44</strong> exige además que cada empresa cuente con uno o más <strong>planes de gestión, reducción y respuesta de riesgos en caso de emergencias, catástrofes o desastres</strong>. Y el DS 594, sobre condiciones sanitarias y ambientales básicas, regula elementos como los extintores y las vías de evacuación.</p>
+<h3>Qué debe contener</h3>
+<ul>
+<li><strong>Diagnóstico de amenazas:</strong> qué emergencias pueden afectar a tu centro de trabajo según su ubicación, infraestructura y actividad (sismo, incendio, tsunami, fuga de gases, temperaturas extremas, entre otras).</li>
+<li><strong>Recursos disponibles:</strong> extintores, red húmeda, alarmas, botiquines, señalética, iluminación de emergencia y zonas de seguridad.</li>
+<li><strong>Organización:</strong> quién coordina, quién decide la evacuación y quiénes integran las brigadas.</li>
+<li><strong>Procedimientos de respuesta:</strong> qué hacer en cada tipo de emergencia, rutas de evacuación y puntos de encuentro.</li>
+<li><strong>Comunicaciones:</strong> cómo se da la alarma y teléfonos de emergencia actualizados.</li>
+<li><strong>Revisión y mejora:</strong> cómo y cada cuánto se actualiza el plan después de un ejercicio o de una emergencia real.</li>
+</ul>
+<h3>Cómo elaborarlo paso a paso</h3>
+<ol>
+<li>Recorre las instalaciones e identifica amenazas, puntos críticos y personas con necesidades especiales de evacuación.</li>
+<li>Define la estructura de emergencia: un coordinador general, líderes por área o piso y las brigadas.</li>
+<li>Diseña las rutas de evacuación y las zonas de seguridad, y señalízalas.</li>
+<li>Redacta procedimientos breves y claros para cada escenario.</li>
+<li>Capacita a todo el personal, no solo a los brigadistas.</li>
+<li>Pon a prueba el plan con simulacros o ejercicios de simulación, idealmente al menos una vez al año, y corrige lo que falle.</li>
+</ol>
+<h3>Por qué las brigadas marcan la diferencia</h3>
+<p>Un plan escrito no apaga un amago de incendio ni atiende a un herido. Las <strong>brigadas de emergencia</strong> (evacuación, primeros auxilios y uso de extintores) son las personas que, entrenadas, guían al resto cuando hay miedo y confusión. Su formación práctica, con ejercicios reales, es la mejor inversión del plan.</p>
+<h3>Errores comunes</h3>
+<ul>
+<li>Copiar un plan genérico que no considera las amenazas reales de tu ubicación.</li>
+<li>No actualizar teléfonos, brigadistas ni planos cuando cambia el personal o el lugar.</li>
+<li>Hacer simulacros sin evaluarlos ni registrar las mejoras.</li>
+<li>Olvidar a visitas, contratistas y personas con movilidad reducida.</li>
+</ul>
+<p>En AR Prevención elaboramos planes de emergencia a la medida de cada empresa, formamos brigadas y organizamos simulacros, para que tu equipo sepa qué hacer cuando más importa.</p>
+      </div>
+      <div class="blog-modal-cta"><p><strong>¿Necesitas ayuda con esto en tu empresa?</strong> Conversemos y revisamos tu caso.</p><a href="#contacto" class="btn btn-primary" data-cerrar-articulo>Solicitar asesoría</a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Blog: abre cada artículo en un modal. Los enlaces apuntan a la página estática
+//    del artículo (blog/<slug>.html), que es la que indexan Google y los buscadores de IA.
+(function(){
+  var abierto = null, origen = null;
+  function abrir(slug){
+    var m = document.getElementById('articulo-' + slug);
+    if (!m) return false;
+    origen = document.activeElement;
+    m.hidden = false; abierto = m;
+    document.body.classList.add('blog-modal-abierto');
+    m.scrollTop = 0;
+    m.querySelector('.blog-modal-close').focus();
+    if (history.replaceState) history.replaceState(null, '', '#articulo-' + slug);
+    return true;
+  }
+  function cerrar(){
+    if (!abierto) return;
+    abierto.hidden = true; abierto = null;
+    document.body.classList.remove('blog-modal-abierto');
+    if (history.replaceState && location.hash.indexOf('#articulo-') === 0) history.replaceState(null, '', location.pathname + location.search + '#blog');
+    if (origen && origen.focus) origen.focus();
+  }
+  document.querySelectorAll('.blog-card[data-articulo]').forEach(function(card){
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(e){
+      if (e.ctrlKey || e.metaKey || e.shiftKey) return;
+      if (abrir(card.getAttribute('data-articulo'))) e.preventDefault();
+    });
+  });
+  document.querySelectorAll('.blog-modal').forEach(function(m){
+    m.querySelector('.blog-modal-close').addEventListener('click', cerrar);
+    m.addEventListener('click', function(e){ if (e.target === m) cerrar(); });
+    m.querySelectorAll('[data-cerrar-articulo]').forEach(function(a){ a.addEventListener('click', cerrar); });
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') cerrar(); });
+  if (location.hash.indexOf('#articulo-') === 0) abrir(location.hash.slice(10));
 })();
 </script>
 </body>
